@@ -1,0 +1,201 @@
+VERSION = 1,
+
+option MultiTow.Enabled
+{
+    type = boolean,
+    default = true,
+    page = MultiTow,
+    translation = MultiTow_Enabled,
+}
+
+option MultiTow.RequireHook
+{
+    type = boolean,
+    default = false,
+    page = MultiTow,
+    translation = MultiTow_RequireHook,
+}
+
+option MultiTow.Wear
+{
+    type = enum,
+    numValues = 5,
+    default = 3,
+    page = MultiTow,
+    translation = MultiTow_Wear,
+    valueTranslation = MultiTow_Wear,
+}
+
+option MultiTow.CargoWeight
+{
+    type = enum,
+    numValues = 5,
+    default = 5,
+    page = MultiTow,
+    translation = MultiTow_CargoWeight,
+    valueTranslation = MultiTow_CargoWeight,
+}
+
+option MultiTow.HazardAuto
+{
+    type = boolean,
+    default = true,
+    page = MultiTow,
+    translation = MultiTow_HazardAuto,
+}
+
+option MultiTow.MaxVehiclesCar
+{
+    type = integer,
+    min = 0,
+    max = 50,
+    default = 0,
+    page = MultiTow,
+    translation = MultiTow_MaxVehiclesCar,
+}
+
+option MultiTow.BoostCar
+{
+    type = enum,
+    numValues = 6,
+    default = 6,
+    page = MultiTow,
+    translation = MultiTow_BoostCar,
+    valueTranslation = MultiTow_Boost,
+}
+
+option MultiTow.MaxVehiclesTruck
+{
+    type = integer,
+    min = 0,
+    max = 50,
+    default = 0,
+    page = MultiTow,
+    translation = MultiTow_MaxVehiclesTruck,
+}
+
+option MultiTow.BoostTruck
+{
+    type = enum,
+    numValues = 6,
+    default = 6,
+    page = MultiTow,
+    translation = MultiTow_BoostTruck,
+    valueTranslation = MultiTow_Boost,
+}
+
+option MultiTow.AssistPower
+{
+    type = integer,
+    min = 0,
+    max = 100,
+    default = 50,
+    page = MultiTow,
+    translation = MultiTow_AssistPower,
+}
+
+option MultiTow.SpeedUnit
+{
+    type = enum,
+    numValues = 2,
+    default = 1,
+    page = MultiTow,
+    translation = MultiTow_SpeedUnit,
+    valueTranslation = MultiTow_SpeedUnit,
+}
+
+option MultiTow.BrakeCar
+{
+    type = integer,
+    min = 0,
+    max = 100,
+    default = 50,
+    page = MultiTow,
+    translation = MultiTow_BrakeCar,
+}
+
+option MultiTow.SpeedLimitCar
+{
+    type = integer,
+    min = 0,
+    max = 200,
+    default = 0,
+    page = MultiTow,
+    translation = MultiTow_SpeedLimitCar,
+}
+
+option MultiTow.FuelModeCar
+{
+    type = enum,
+    numValues = 3,
+    default = 1,
+    page = MultiTow,
+    translation = MultiTow_FuelModeCar,
+    valueTranslation = MultiTow_FuelMode,
+}
+
+option MultiTow.FuelPercentCar
+{
+    type = integer,
+    min = 0,
+    max = 100,
+    default = 20,
+    page = MultiTow,
+    translation = MultiTow_FuelPercentCar,
+}
+
+option MultiTow.NoiseCar
+{
+    type = boolean,
+    default = true,
+    page = MultiTow,
+    translation = MultiTow_NoiseCar,
+}
+
+option MultiTow.BrakeTruck
+{
+    type = integer,
+    min = 0,
+    max = 100,
+    default = 50,
+    page = MultiTow,
+    translation = MultiTow_BrakeTruck,
+}
+
+option MultiTow.SpeedLimitTruck
+{
+    type = integer,
+    min = 0,
+    max = 200,
+    default = 0,
+    page = MultiTow,
+    translation = MultiTow_SpeedLimitTruck,
+}
+
+option MultiTow.FuelModeTruck
+{
+    type = enum,
+    numValues = 3,
+    default = 1,
+    page = MultiTow,
+    translation = MultiTow_FuelModeTruck,
+    valueTranslation = MultiTow_FuelMode,
+}
+
+option MultiTow.FuelPercentTruck
+{
+    type = integer,
+    min = 0,
+    max = 100,
+    default = 20,
+    page = MultiTow,
+    translation = MultiTow_FuelPercentTruck,
+}
+
+option MultiTow.NoiseTruck
+{
+    type = boolean,
+    default = true,
+    page = MultiTow,
+    translation = MultiTow_NoiseTruck,
+}

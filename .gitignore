@@ -1,0 +1,11 @@
+# Old backup of the source code (Git keeps the history)
+src_old_0.12.6/
+
+# Never upload private keys
+*.der
+*.pem
+*.key
+
+# Windows junk
+Thumbs.db
+desktop.ini

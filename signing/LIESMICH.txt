@@ -1,0 +1,28 @@
+MultiTow – Signatur der Java-JAR (ZombieBuddy "ZBS")
+====================================================
+
+ed25519-private.der   PRIVATER Schluessel. Niemals weitergeben, nie in den Mod-Ordner
+                      oder ins Internet kopieren. Bitte eine Sicherungskopie an einem
+                      sicheren Ort (z.B. USB-Stick) aufbewahren. Geht er verloren, muss
+                      ein neuer erstellt und im Steam-Profil eingetragen werden.
+sign_jar.py           Signiert eine JAR und prueft das Ergebnis.
+
+Oeffentlicher Schluessel (gehoert in die Beschreibung deines Steam-Profils):
+
+  JavaModZBS:ce5bc2e3260fc57b60d8cff6b3b380c1d770a2f25903d0d7bb915bc987fa054b
+
+SteamID64: 76561197980707470
+Anzeigename (fuer die Autorenliste von ZombieBuddy): DofD
+Text fuer das GitHub-Issue: GitHub-Issue.txt
+
+Nach JEDEM Neubau von MultiTowCore.jar muss neu signiert werden, sonst passt die
+Datei MultiTowCore.jar.zbs nicht mehr und ZombieBuddy blockiert die Mod:
+
+  python3 sign_jar.py ../mods/multitowmod/42/media/java/MultiTowCore.jar
+
+Die Datei MultiTowCore.jar.zbs gehoert immer zusammen mit der JAR in den Mod.
+
+STAND 21.10.2026: Die .zbs-Datei wird vorerst NICHT in den Mod gelegt. ZombieBuddy 2.3.4
+kann den Schluessel nicht aus dem Steam-Profil lesen (Fehler "platform encoding not
+initialized") und blockiert die Mod dann. Erst wieder einsetzen, wenn der Schluessel in der
+Autorenliste von ZombieBuddy (authors.json auf GitHub) steht.

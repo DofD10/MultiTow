@@ -1,0 +1,77 @@
+{
+    "Sandbox_MultiTow": "Multi-Vehicle Towing",
+
+    "Sandbox_MultiTow_Enabled": "Multi-Tow aktivieren",
+    "Sandbox_MultiTow_Enabled_tooltip": "Aus = normales Abschleppen (nur ein Fahrzeug bzw. Anhaenger). Der Java-Teil der Mod (ZombieBuddy) muss auf dem Server und bei jedem Spieler laufen.",
+    "Sandbox_MultiTow_RequireHook": "Ab dem 3. Fahrzeug Heavy Chain Hook noetig",
+    "Sandbox_MultiTow_RequireHook_tooltip": "Das Ankuppeln eines dritten oder weiteren Fahrzeugs verbraucht einen Heavy Chain Hook. Beim Abkuppeln gibt es ihn zurueck; reisst die Verbindung, fallen eine Heavy Chain und ein Large Hook auf den Boden.",
+
+    "Sandbox_MultiTow_HazardAuto": "Warnblinker automatisch einschalten",
+    "Sandbox_MultiTow_HazardAuto_tooltip": "Beim Ankuppeln gehen die Warnblinker des Zuges an. Der Fahrer kann sie im Fahrzeug-Rundmenue (V) ausschalten.",
+
+    "Sandbox_MultiTow_Wear": "Verschleiss der Verbindungen",
+    "Sandbox_MultiTow_Wear_tooltip": "Verbindungen nutzen sich beim Fahren ab, unter starker Belastung schneller. Ketten verschleissen etwa dreimal so schnell wie Abschleppstangen. Bei 0 %% reisst die Verbindung.",
+    "Sandbox_MultiTow_Wear_option1": "Aus",
+    "Sandbox_MultiTow_Wear_option2": "Niedrig",
+    "Sandbox_MultiTow_Wear_option3": "Normal",
+    "Sandbox_MultiTow_Wear_option4": "Hoch",
+    "Sandbox_MultiTow_Wear_option5": "Sehr hoch",
+
+    "Sandbox_MultiTow_CargoWeight": "Ladungsgewicht",
+    "Sandbox_MultiTow_CargoWeight_tooltip": "Wie viel von der Ladung zum Gewicht der Fahrzeuge im Zug zaehlt. Aus = Rechnung des Spiels.",
+    "Sandbox_MultiTow_CargoWeight_option1": "Aus (wie im Spiel)",
+    "Sandbox_MultiTow_CargoWeight_option2": "25 %%",
+    "Sandbox_MultiTow_CargoWeight_option3": "50 %%",
+    "Sandbox_MultiTow_CargoWeight_option4": "75 %%",
+    "Sandbox_MultiTow_CargoWeight_option5": "100 %%",
+
+    "Sandbox_MultiTow_MaxVehiclesCar": "PKW: maximale Fahrzeuge im Zug",
+    "Sandbox_MultiTow_MaxVehiclesCar_tooltip": "Gilt, wenn das Zugfahrzeug (das erste Fahrzeug) ein PKW ist. Zaehlt alle Fahrzeuge inklusive Zugfahrzeug. 0 = unbegrenzt.",
+    "Sandbox_MultiTow_BoostCar": "PKW: Zusatzleistung",
+    "Sandbox_MultiTow_BoostCar_tooltip": "Mehr Kraft fuer einen PKW, der mehr als ein Fahrzeug zieht. Automatisch waechst mit jedem weiteren gezogenen Fahrzeug.",
+
+    "Sandbox_MultiTow_MaxVehiclesTruck": "LKW und Transporter: maximale Fahrzeuge im Zug",
+    "Sandbox_MultiTow_MaxVehiclesTruck_tooltip": "Gilt, wenn das Zugfahrzeug ein Pickup, Van, Step Van, LKW oder Krankenwagen ist. 0 = unbegrenzt.",
+    "Sandbox_MultiTow_BoostTruck": "LKW und Transporter: Zusatzleistung",
+    "Sandbox_MultiTow_BoostTruck_tooltip": "Mehr Kraft fuer einen LKW oder Transporter, der mehr als ein Fahrzeug zieht. Automatisch waechst mit jedem weiteren gezogenen Fahrzeug.",
+    "Sandbox_MultiTow_AssistPower": "Laufende gezogene Fahrzeuge helfen mit (%%)",
+    "Sandbox_MultiTow_AssistPower_tooltip": "Ein gezogenes Fahrzeug mit laufendem Motor faehrt mit diesem Anteil seiner eigenen Motorkraft mit, wenn das Zugfahrzeug Gas gibt. 0 = aus. Wirkt nur, wenn die Zusatzleistung bei PKW und bei LKW/Transportern aus ist.",
+
+    "Sandbox_MultiTow_Boost_option1": "Aus",
+    "Sandbox_MultiTow_Boost_option2": "1.5x",
+    "Sandbox_MultiTow_Boost_option3": "2x",
+    "Sandbox_MultiTow_Boost_option4": "2.5x",
+    "Sandbox_MultiTow_Boost_option5": "3x",
+    "Sandbox_MultiTow_Boost_option6": "Automatisch",
+
+    "Sandbox_MultiTow_SpeedUnit": "Masseinheit Geschwindigkeit",
+    "Sandbox_MultiTow_SpeedUnit_tooltip": "Einheit der beiden Tempolimits unten.",
+    "Sandbox_MultiTow_SpeedUnit_option1": "km/h",
+    "Sandbox_MultiTow_SpeedUnit_option2": "mph",
+
+    "Sandbox_MultiTow_BrakeCar": "PKW: Zugbremse (%%)",
+    "Sandbox_MultiTow_BrakeCar_tooltip": "Wie stark die gezogenen Fahrzeuge mitbremsen, wenn das Zugfahrzeug bremst. 0 = gar nicht (wie im Spiel), 100 = als wuerde in jedem jemand selbst bremsen.",
+    "Sandbox_MultiTow_SpeedLimitCar": "PKW: Tempolimit",
+    "Sandbox_MultiTow_SpeedLimitCar_tooltip": "Hoechstgeschwindigkeit fuer Zuege mit 3 oder mehr Fahrzeugen, in der oben gewaehlten Einheit. 0 = kein Limit.",
+    "Sandbox_MultiTow_FuelModeCar": "PKW: Mehrverbrauch an Sprit",
+    "Sandbox_MultiTow_FuelModeCar_tooltip": "Zusaetzlicher Spritverbrauch des Zugfahrzeugs ab dem 3. Fahrzeug. Gleichmaessig = der Prozentwert kommt pro weiterem Fahrzeug einmal dazu. Exponentiell = er waechst mit jedem weiteren Fahrzeug schneller.",
+    "Sandbox_MultiTow_FuelPercentCar": "PKW: Mehrverbrauch pro Fahrzeug (%%)",
+    "Sandbox_MultiTow_FuelPercentCar_tooltip": "Beispiel mit 20 %% und 4 gezogenen Fahrzeugen: Gleichmaessig = 1,6-fach, Exponentiell = 1,73-fach.",
+    "Sandbox_MultiTow_NoiseCar": "PKW: Laerm lockt Zombies an",
+    "Sandbox_MultiTow_NoiseCar_tooltip": "Ein fahrender Zug macht an jeder Verbindung Laerm. Ketten sind laut, Abschleppstangen viel leiser.",
+
+    "Sandbox_MultiTow_BrakeTruck": "LKW und Transporter: Zugbremse (%%)",
+    "Sandbox_MultiTow_BrakeTruck_tooltip": "Wie oben, fuer Zuege mit LKW oder Transporter vorne.",
+    "Sandbox_MultiTow_SpeedLimitTruck": "LKW und Transporter: Tempolimit",
+    "Sandbox_MultiTow_SpeedLimitTruck_tooltip": "Hoechstgeschwindigkeit fuer Zuege mit 3 oder mehr Fahrzeugen, in der oben gewaehlten Einheit. 0 = kein Limit.",
+    "Sandbox_MultiTow_FuelModeTruck": "LKW und Transporter: Mehrverbrauch an Sprit",
+    "Sandbox_MultiTow_FuelModeTruck_tooltip": "Wie oben, fuer Zuege mit LKW oder Transporter vorne.",
+    "Sandbox_MultiTow_FuelPercentTruck": "LKW und Transporter: Mehrverbrauch pro Fahrzeug (%%)",
+    "Sandbox_MultiTow_FuelPercentTruck_tooltip": "Beispiel mit 20 %% und 4 gezogenen Fahrzeugen: Gleichmaessig = 1,6-fach, Exponentiell = 1,73-fach.",
+    "Sandbox_MultiTow_NoiseTruck": "LKW und Transporter: Laerm lockt Zombies an",
+    "Sandbox_MultiTow_NoiseTruck_tooltip": "Ein fahrender Zug macht an jeder Verbindung Laerm. Ketten sind laut, Abschleppstangen viel leiser.",
+
+    "Sandbox_MultiTow_FuelMode_option1": "Aus",
+    "Sandbox_MultiTow_FuelMode_option2": "Gleichmaessig",
+    "Sandbox_MultiTow_FuelMode_option3": "Exponentiell"
+}

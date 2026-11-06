@@ -1,0 +1,39 @@
+Title: Steam profile key lookup fails with "platform encoding not initialized" (signed mod shown as Invalid)
+
+Hi zed-0xff,
+
+thanks for ZombieBuddy! I'm signing my Java mod "Multi-Vehicle Road Train" (mod id MultiTowRoadTrain) with a ZBS signature and ran into a problem.
+
+(I'm adding my key to authors.json via a separate pull request: authors/DofD.json.)
+
+**Bug: signature check via Steam profile fails during startup**
+
+Environment:
+- ZombieBuddy 2.3.4 (Workshop 3619862853)
+- Project Zomboid Build 42.21, Windows x64
+- Policy: default (prompt)
+
+What happens:
+- The approval dialog shows the mod as "Invalid" in the Author column, with the tooltip:
+  "Could not verify signature. platform encoding not initialized"
+- The mod is then blocked (Allow is not possible).
+
+Cause, as far as I can tell:
+- The signer is not in authors.json, so ZBSVerifier.verify() falls back to fetchJavaModZBSHexesFromSteam().
+- That call uses java.net.http.HttpClient during agent startup and throws "platform encoding not initialized" (the JVM is not fully initialized yet at that point).
+- The exception is turned into a VerificationError, which the dialog treats like an invalid signature.
+
+The signature itself is valid: verifying the payload "ZBS:76561197980707470:<jar sha256>" with the public key above using ZombieBuddy's own Ed25519 classes succeeds, and a modified JAR correctly fails.
+
+Suggestions:
+- Defer the Steam profile lookup until the JVM is fully initialized, or use a different HTTP approach at that point, and/or
+- Treat a failed key lookup (network/initialization error) as "could not verify" (prompt like an unsigned mod) instead of blocking it like a tampered JAR.
+
+Steps to reproduce:
+1. Sign a Java mod with a key that is only published on the Steam profile (not in authors.json),
+   e.g. key JavaModZBS:ce5bc2e3260fc57b60d8cff6b3b380c1d770a2f25903d0d7bb915bc987fa054b on profile 76561197980707470.
+2. Put the .zbs next to the JAR and start the game on Windows.
+3. The approval dialog shows "Invalid" / "platform encoding not initialized".
+
+Thanks a lot!
+DofD

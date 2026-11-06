@@ -1,0 +1,25 @@
+module Base
+{
+    /* Multi-Vehicle Towing: neues 3D-Modell fuer die Kette mit Haken (Base.HeavyChain_Hook) - am Boden und in der Hand.
+       Ersetzt nur das AUSSEHEN des Spiel-Gegenstands (gleicher Modellname wie im Spiel), sonst bleibt alles gleich.
+       Modell: media/models_X/WorldItems/MultiTow_TowChain.glb (Meter, etwa 0,6 m breit, 2500 Dreiecke)
+       Textur: media/textures/WorldItems/MultiTow_TowChain.png (256 x 256)
+       Symbol im Inventar: media/textures/Item_HeavyChain_Hook.png (32 x 32, ersetzt das Symbol des Spiels)
+       GROESSE ANPASSEN: "scale" aendern (1.0 = echte Groesse in Metern). */
+    model HeavyChain_Hook
+    {
+        mesh = WorldItems/MultiTow_TowChain,
+        texture = WorldItems/MultiTow_TowChain,
+        scale = 1.0,
+    }
+
+    /* (ab 0.16) 3D-Kette zwischen den Fahrzeugen: ein kurzes Stueck mit 2 Gliedern (0,1217 m lang, 530 Dreiecke).
+       Der Java-Teil zeichnet es mehrmals hintereinander zwischen die Kupplungspunkte (ModelLinkStyle).
+       !! Laenge im Java-Teil (SEG_LEN) muss zum Modell passen. */
+    model MultiTowLinkSegment
+    {
+        mesh = WorldItems/MultiTow_LinkSegment,
+        texture = WorldItems/MultiTow_LinkSegment,
+        scale = 1.0,
+    }
+}

@@ -1,0 +1,79 @@
+[h1]Multi-Vehicle Towing[/h1]
+Couple any number of cars, vans, trucks and trailers behind each other into one long train - with chains, tow bars, a train brake, wear, cargo weight, hazard lights and a live train display.
+[b]Requires the mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830865542]DO Utilities[/url][/b] (shared scripts and assets by DofD) - Steam subscribes it automatically.
+
+[hr][/hr]
+[h2]⚠ ZOMBIEBUDDY STRONGLY RECOMMENDED[/h2]
+[b]Trains of 3 or more vehicles need [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3619862853]ZombieBuddy[/url].[/b] Without it the mod still loads, but only runs in a [b]basic mode[/b].
+
+[table]
+[tr][th][/th][th]With ZombieBuddy[/th][th]Without (basic mode)[/th][/tr]
+[tr][td]Trains of 3+ vehicles, tow bar link[/td][td]yes[/td][td]no[/td][/tr]
+[tr][td]Towing 2 vehicles[/td][td]yes[/td][td]yes, vanilla towing[/td][/tr]
+[tr][td]Cargo weight, extra fuel use, noise[/td][td]yes[/td][td]yes[/td][/tr]
+[tr][td]Train display[/td][td]yes[/td][td]yes, without link stress[/td][/tr]
+[tr][td]Extra power, running vehicles help, train brake, speed limit, link wear, hazard lights, visible chains, link stress display, chain sounds, remarks[/td][td]yes[/td][td]no[/td][/tr]
+[/table]
+
+Without ZombieBuddy the setup assistant shows a warning page, and the options that need it are [b]red[/b] in [i]Options > DO Utilities > Multi-Vehicle Towing[/i].
+
+ZombieBuddy is not a normal mod you just subscribe to. It is a loader for Java mods and has to be [b]installed once[/b] (on Windows with its installer, otherwise with a launch option). Please follow the installation guide on the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3619862853]ZombieBuddy Workshop page[/url] or on [url=https://github.com/zed-0xff/ZombieBuddy]GitHub[/url].
+When it works, you see "ZombieBuddy vX.Y.Z loaded" in the top left corner of the main menu.
+
+On the first start (and after every update of this mod) ZombieBuddy asks you to approve the Java part of this mod ([i]MultiTowCore.jar[/i]). Click [b]Yes[/b]. Without approval the mod runs in basic mode.
+
+[h3]Why does the full mod need ZombieBuddy?[/h3]
+In Project Zomboid every vehicle can hold exactly [b]one[/b] towing link. This is hard-wired in the game's Java code: each vehicle stores a single physics link, and coupling a new vehicle silently breaks the existing one. Lua mods can only call the game's functions - they cannot change this rule.
+
+[b]The first version of this mod was Lua only - and it failed.[/b] Two vehicles worked, but as soon as a third one was coupled, the game broke one of the existing links. The only way is to change how the game itself handles towing links - and that needs Java. ZombieBuddy lets the mod patch exactly these parts of the game at runtime, without replacing any game files. The Java part of this mod only touches vehicle towing, the physics links between vehicles, the train brake/speed limit, the hazard lights and the drawing of chains and tow bars.
+
+[hr][/hr]
+[h2]Features[/h2]
+[i](ZB) = needs ZombieBuddy[/i]
+[list]
+[*][b]Trains of any length[/b] (ZB) - cars, vans, trucks and trailers. Separate maximum length for cars and for trucks/vans (or unlimited).
+[*][b]Chain or tow bar[/b] (ZB) - chains sag and stretch; the new [b]Tow Bar[/b] item gives a rigid link. Craft it from 2 iron bars (placeholder recipe, no requirements).
+[*][b]Heavy Chain Hook[/b] (optional, ZB) - from the 3rd vehicle on, a hook is used up and returned when detaching. Includes a recipe for the hook and a new 3D model and icon for it.
+[*][b]Extra engine power[/b] for the towing vehicle (fixed or automatic) (ZB).
+[*][b]Running vehicles help[/b] (ZB) - with the extra power switched off, every towed vehicle whose engine is running drives along with a set share of its own engine power (0-100 %).
+[*][b]Train brake[/b] (ZB) - towed vehicles brake along (0-100 %, 100 % = as if someone were braking in each of them).
+[*][b]Speed limit[/b] for trains with 3+ vehicles, in km/h or mph (ZB).
+[*][b]Extra fuel use[/b] - even or exponential per additional vehicle.
+[*][b]Link wear[/b] (ZB) - chains wear about three times faster than tow bars and snap at 0 %. A worn tow bar can be repaired (blowtorch, Welding 2). A snapped tow bar is only scrap.
+[*][b]Cargo weight[/b] - 25/50/75/100 % of what is loaded counts for the train.
+[*][b]Noise[/b] - moving trains attract zombies; chains are loud, tow bars quiet.
+[*][b]Hazard lights[/b] (ZB) - switch them on in the vehicle radial menu (V). European (orange) or American (red rear, amber front) style, on the last or on all towed vehicles, optionally switched on automatically when coupling.
+[*][b]Visible chains and tow bars[/b] between the vehicles (ZB) - chains as a real 3D model (needs "3D ground items" in the game options), tow bars as a picture.
+[*][b]Link stress display[/b] (ZB) - green-to-red bands on every link (hotkey, hold or toggle).
+[*][b]Train display[/b] - small window with vehicles, speed, link stress (ZB), weakest link (ZB), weight and fuel. Free position or any corner/side.
+[*][b]Setup assistant[/b] on the first start that walks you through all options - with a warning page if ZombieBuddy is missing.
+[*]Character remarks when coupling and chain sounds (ZB), English and German translation.
+[*][b]DO Utilities page[/b] - options on the shared page [i]Options > DO Utilities[/i] (from the mod DO Utilities) with my other mods.
+[/list]
+
+[h2]How to use[/h2]
+[list]
+[*]Couple the first two vehicles as usual (vanilla "Attach").
+[*]Stand next to the end of a train and open the vehicle radial menu ([b]V[/b]): [i]Multi-Tow: Attach[/i] / [i]Attach with tow bar[/i] / [i]Detach[/i] (ZB).
+[*]Drive from the [b]first[/b] vehicle of the train.
+[*]All options: [i]Options > DO Utilities > Multi-Vehicle Towing[/i]. Options in red need ZombieBuddy. In multiplayer the server's sandbox options decide the rules.
+[/list]
+
+[h2]Compatibility[/h2]
+[list]
+[*][b]Build 42 only[/b] (made and tested on 42.21).
+[*]Singleplayer is tested. [b]Multiplayer is experimental and untested[/b] - for trains of 3 or more vehicles, ZombieBuddy and this mod are needed on the server and on every client. Otherwise only the basic mode runs.
+[*]Works with other vehicle mods as long as their vehicles have the usual towing points; missing points are added automatically.
+[*]With some performance mods the red tail lights of the vehicle models may not blink - the blinking light at the rear still works.
+[/list]
+
+[h2]Known limitations[/h2]
+[list]
+[*]Only the first vehicle of a train can be driven.
+[*]Tow bars are drawn as a picture on top of the vehicles (not hidden behind them).
+[*]The Java part is not signed yet, so ZombieBuddy asks for approval after each update.
+[*]Sounds are silent placeholders for now.
+[/list]
+
+[hr][/hr]
+Made by DofD. ZombieBuddy by Zed. Feedback and bug reports welcome in the comments - please add your console.txt.

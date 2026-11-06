@@ -1,0 +1,39 @@
+module Base
+{
+    /* Multi-Vehicle Towing: Heavy Chain Hook, der im Spiel sonst nicht herstellbar ist.
+       Absichtlich ohne Voraussetzungen: kein Werkzeug, keine Faehigkeit, nichts muss gelernt werden. */
+    craftRecipe MultiTowMakeHeavyChainHook
+    {
+        timedAction = Making,
+        time = 80,
+        Tags = InHandCraft,
+        category = Assembly,
+        inputs
+        {
+            item 1 [Base.HeavyChain],
+            item 1 [Base.LargeHook],
+        }
+        outputs
+        {
+            item 1 Base.HeavyChain_Hook,
+        }
+    }
+
+    /* Abschleppstange. PLATZHALTER-Rezept: 2 Eisenstangen, keine Voraussetzungen.
+       (Base.IronRod gibt es in Build 42.21 nicht, daher Base.IronBar.) */
+    craftRecipe MultiTowMakeTowBar
+    {
+        timedAction = Making,
+        time = 120,
+        Tags = InHandCraft,
+        category = Assembly,
+        inputs
+        {
+            item 2 [Base.IronBar],
+        }
+        outputs
+        {
+            item 1 Base.MultiTowTowBar,
+        }
+    }
+}

@@ -1,0 +1,14 @@
+module Base
+{
+    /* Multi-Vehicle Towing: abgenutzte Abschleppstange schweissen.
+       Rechtsklick auf die Stange -> Reparieren. Braucht ein Schweissgeraet (2 Einheiten Gas) und Schweissen Stufe 2.
+       Material: 1 kleines Blech oder 2 Altmetall. Eine schon gebrochene Stange (Schrott) kann man nicht mehr reparieren. */
+    fixing Fix MultiTow Tow Bar
+    {
+        Require = Base.MultiTowTowBar,
+        GlobalItem = Base.BlowTorch=2,
+        ConditionModifier = 1.2,
+        Fixer = Base.SmallSheetMetal; MetalWelding=2,
+        Fixer = Base.ScrapMetal=2; MetalWelding=2,
+    }
+}

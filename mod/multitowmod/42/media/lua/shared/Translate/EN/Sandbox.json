@@ -1,0 +1,77 @@
+{
+    "Sandbox_MultiTow": "Multi-Vehicle Towing",
+
+    "Sandbox_MultiTow_Enabled": "Enable Multi-Tow",
+    "Sandbox_MultiTow_Enabled_tooltip": "Off = vanilla towing (one vehicle or trailer only). Requires the mod's Java part (ZombieBuddy) on the server and on every client.",
+    "Sandbox_MultiTow_RequireHook": "Require Heavy Chain Hook from the 3rd vehicle on",
+    "Sandbox_MultiTow_RequireHook_tooltip": "Coupling a third or further vehicle uses up one Heavy Chain Hook. Detaching gives it back; if the link snaps, a Heavy Chain and a Large Hook drop on the ground.",
+
+    "Sandbox_MultiTow_HazardAuto": "Switch on hazard lights automatically",
+    "Sandbox_MultiTow_HazardAuto_tooltip": "Coupling a vehicle switches on the hazard lights of the train. The driver can switch them off in the vehicle radial menu (V).",
+
+    "Sandbox_MultiTow_Wear": "Link wear",
+    "Sandbox_MultiTow_Wear_tooltip": "Links wear out while driving, faster under heavy load. Chains wear about three times faster than tow bars. At 0 %% the link snaps.",
+    "Sandbox_MultiTow_Wear_option1": "Off",
+    "Sandbox_MultiTow_Wear_option2": "Low",
+    "Sandbox_MultiTow_Wear_option3": "Normal",
+    "Sandbox_MultiTow_Wear_option4": "High",
+    "Sandbox_MultiTow_Wear_option5": "Very high",
+
+    "Sandbox_MultiTow_CargoWeight": "Cargo weight",
+    "Sandbox_MultiTow_CargoWeight_tooltip": "How much of the cargo adds to the weight of vehicles in a train. Off = the game's own calculation.",
+    "Sandbox_MultiTow_CargoWeight_option1": "Off (vanilla)",
+    "Sandbox_MultiTow_CargoWeight_option2": "25 %%",
+    "Sandbox_MultiTow_CargoWeight_option3": "50 %%",
+    "Sandbox_MultiTow_CargoWeight_option4": "75 %%",
+    "Sandbox_MultiTow_CargoWeight_option5": "100 %%",
+
+    "Sandbox_MultiTow_MaxVehiclesCar": "Cars: maximum vehicles in a train",
+    "Sandbox_MultiTow_MaxVehiclesCar_tooltip": "Applies when the towing vehicle (the first vehicle) is a car. Counts all vehicles including the towing vehicle. 0 = unlimited.",
+    "Sandbox_MultiTow_BoostCar": "Cars: extra engine power",
+    "Sandbox_MultiTow_BoostCar_tooltip": "Extra power for a car pulling more than one vehicle. Automatic grows with every additional towed vehicle.",
+
+    "Sandbox_MultiTow_MaxVehiclesTruck": "Trucks and vans: maximum vehicles in a train",
+    "Sandbox_MultiTow_MaxVehiclesTruck_tooltip": "Applies when the towing vehicle is a pickup, van, step van, truck or ambulance. 0 = unlimited.",
+    "Sandbox_MultiTow_BoostTruck": "Trucks and vans: extra engine power",
+    "Sandbox_MultiTow_BoostTruck_tooltip": "Extra power for a truck or van pulling more than one vehicle. Automatic grows with every additional towed vehicle.",
+    "Sandbox_MultiTow_AssistPower": "Running towed vehicles help (%%)",
+    "Sandbox_MultiTow_AssistPower_tooltip": "A towed vehicle with its engine running drives along with this share of its own engine power when the towing vehicle accelerates. 0 = off. Only works when the extra engine power is Off for cars and for trucks/vans.",
+
+    "Sandbox_MultiTow_Boost_option1": "Off",
+    "Sandbox_MultiTow_Boost_option2": "1.5x",
+    "Sandbox_MultiTow_Boost_option3": "2x",
+    "Sandbox_MultiTow_Boost_option4": "2.5x",
+    "Sandbox_MultiTow_Boost_option5": "3x",
+    "Sandbox_MultiTow_Boost_option6": "Automatic",
+
+    "Sandbox_MultiTow_SpeedUnit": "Speed unit",
+    "Sandbox_MultiTow_SpeedUnit_tooltip": "Unit of the two speed limit values below.",
+    "Sandbox_MultiTow_SpeedUnit_option1": "km/h",
+    "Sandbox_MultiTow_SpeedUnit_option2": "mph",
+
+    "Sandbox_MultiTow_BrakeCar": "Cars: train brake (%%)",
+    "Sandbox_MultiTow_BrakeCar_tooltip": "How hard the towed vehicles brake along when the towing vehicle brakes. 0 = not at all (vanilla), 100 = as if someone were braking in each of them.",
+    "Sandbox_MultiTow_SpeedLimitCar": "Cars: speed limit",
+    "Sandbox_MultiTow_SpeedLimitCar_tooltip": "Top speed for trains with 3 or more vehicles, in the unit chosen above. 0 = no limit.",
+    "Sandbox_MultiTow_FuelModeCar": "Cars: extra fuel use",
+    "Sandbox_MultiTow_FuelModeCar_tooltip": "Extra fuel used by the towing vehicle from the 3rd vehicle on. Even = the percentage is added once per additional vehicle. Exponential = it grows faster with every additional vehicle.",
+    "Sandbox_MultiTow_FuelPercentCar": "Cars: extra fuel per vehicle (%%)",
+    "Sandbox_MultiTow_FuelPercentCar_tooltip": "Example with 20 %% and 4 towed vehicles: Even = 1.6x, Exponential = 1.73x.",
+    "Sandbox_MultiTow_NoiseCar": "Cars: noise attracts zombies",
+    "Sandbox_MultiTow_NoiseCar_tooltip": "A moving train makes noise at every link. Chains are loud, tow bars much quieter.",
+
+    "Sandbox_MultiTow_BrakeTruck": "Trucks and vans: train brake (%%)",
+    "Sandbox_MultiTow_BrakeTruck_tooltip": "Like above, for trains pulled by a truck or van.",
+    "Sandbox_MultiTow_SpeedLimitTruck": "Trucks and vans: speed limit",
+    "Sandbox_MultiTow_SpeedLimitTruck_tooltip": "Top speed for trains with 3 or more vehicles, in the unit chosen above. 0 = no limit.",
+    "Sandbox_MultiTow_FuelModeTruck": "Trucks and vans: extra fuel use",
+    "Sandbox_MultiTow_FuelModeTruck_tooltip": "Like above, for trains pulled by a truck or van.",
+    "Sandbox_MultiTow_FuelPercentTruck": "Trucks and vans: extra fuel per vehicle (%%)",
+    "Sandbox_MultiTow_FuelPercentTruck_tooltip": "Example with 20 %% and 4 towed vehicles: Even = 1.6x, Exponential = 1.73x.",
+    "Sandbox_MultiTow_NoiseTruck": "Trucks and vans: noise attracts zombies",
+    "Sandbox_MultiTow_NoiseTruck_tooltip": "A moving train makes noise at every link. Chains are loud, tow bars much quieter.",
+
+    "Sandbox_MultiTow_FuelMode_option1": "Off",
+    "Sandbox_MultiTow_FuelMode_option2": "Even",
+    "Sandbox_MultiTow_FuelMode_option3": "Exponential"
+}

@@ -1,0 +1,107 @@
+[h2]Version 0.16.0 - 3D chain[/h2]
+
+[h3]New[/h3]
+[list]
+[*][b]3D chain between the vehicles:[/b] chains are now drawn as a real 3D model - link by link from hitch to hitch, sagging when slack, the links keep their size at any distance. Needs [i]3D ground items[/i] in the game options; otherwise the picture is used as before. Tow bars stay a picture.
+[*][b]New look for the Heavy Chain with Hook:[/b] a coiled chain with two red hooks on the ground and in the hands, and a new inventory icon.
+[/list]
+
+[h3]Fixed[/h3]
+[list]
+[*]Vehicles from other mods without hitches of their own (for example the semi-trailers of the W900 mod): a vehicle coupled behind them was pulled upwards. Their hitches are now at wheel-hub height.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*]The Java part was rebuilt (0.16.0). ZombieBuddy asks once more for approval - click [b]Yes[/b].
+[/list]
+
+[hr][/hr]
+[h2]Version 0.15.0 - Running towed vehicles help[/h2]
+
+[h3]New[/h3]
+[list]
+[*][b]Running towed vehicles help:[/b] a towed vehicle with its engine running drives along when you accelerate, with a set share of its own engine power - a strong truck helps more than a small car.
+[*]New option [i]Running towed vehicles help (%)[/i] under Gameplay (0-100 %, default 50). It can only be changed when the extra engine power of the towing vehicle is [b]Off[/b] for cars and for trucks/vans. Also as sandbox option for multiplayer.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*]The Java part was rebuilt (0.15.0). ZombieBuddy asks once more for approval - click [b]Yes[/b].
+[/list]
+
+[hr][/hr]
+[h2]Version 0.14.0 - New name "Multi-Vehicle Towing", options page in its own mod "DO Utilities"[/h2]
+
+[h3]New[/h3]
+[list]
+[*][b]Restart hint:[/b] if you switch the mod on in the mod list while the game is running, ZombieBuddy loads the Java part, but it only works after a restart. The mod now tells you so (orange note in the options, a page in the setup assistant, a message in game) instead of claiming that ZombieBuddy is missing.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*][b]New name: Multi-Vehicle Towing[/b] (before: Multi-Vehicle Road Train). Your settings and save games are not affected. In game, "Road Train" is now called [b]Multi-Tow[/b] (radial menu, train display, messages).
+[*]The shared options page of all DofD mods is now the separate mod [b]DO Utilities[/b]. The tab in [i]Options[/i] is now called [b]DO Utilities[/b] too (before: "DO Mods"). This mod requires it - Steam subscribes it automatically. Keep it enabled in the mod list.
+[*]Only Lua changed: the Java part is untouched, ZombieBuddy does not ask for approval again.
+[/list]
+
+[h3]Fixed[/h3]
+[list]
+[*]The options page together with Project A-Life and other mods that also change the options screen: their page can no longer replace ours.
+[*]Hazard lights no longer go out for a moment when an NPC dies (e.g. Project A-Life).
+[/list]
+
+[hr][/hr]
+[h2]Version 0.13.5 - DO Mods page updates itself[/h2]
+
+[h3]Changed[/h3]
+[list]
+[*]The shared [b]DO Mods[/b] options page now always uses the newest version found among your installed mods by DofD. Before, the game could pick an older copy depending on load order. Updating one mod is now enough for the page to improve in all of them.
+[*]New look: the mouse-over highlight on the DO Mods page is now yellow-green, and the text on the Back / Workshop page buttons turns dark so it stays readable.
+[*]The Java part is unchanged, so ZombieBuddy does [b]not[/b] ask for a new approval.
+[/list]
+
+[h2]Version 0.13.0 - DO Mods options page[/h2]
+
+[h3]New[/h3]
+[list]
+[*]The options moved from their own tab [i]Road Train[/i] to the new shared page [b]Options > DO Mods[/b]. It shows one card per mod by DofD; click the [b]Multi-Vehicle Road Train[/b] card to open the same options as before (with a Back button). Cards of mods you do not have open their Workshop page.
+[*]All options, defaults and saved values are unchanged.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*]The Java part is unchanged, so ZombieBuddy does [b]not[/b] ask for a new approval this time.
+[*]The setup assistant now says "Options > DO Mods".
+[/list]
+
+[hr][/hr]
+[h2]Version 0.12.6[/h2]
+
+[h3]Fixed[/h3]
+[list]
+[*]Errors "Tried to call nil" in the log every time the options menu was built (main menu and in game). They came from the new red marking of the options that need ZombieBuddy. The marking now checks every option first, so other mods that change the options menu (e.g. NeatUI Game Options) no longer cause errors.
+[*]The Java part was rebuilt for the new version number only. ZombieBuddy asks once more for approval - click [b]Yes[/b].
+[/list]
+
+[hr][/hr]
+[h2]Version 0.12.5[/h2]
+
+[b]ZombieBuddy is now optional![/b]
+Without ZombieBuddy the mod runs in a [b]basic mode[/b]: the game's normal towing of two vehicles, plus cargo weight, extra fuel use, noise and the train display. Road trains of 3 or more vehicles and most other features still need ZombieBuddy - it stays strongly recommended.
+
+[h3]New[/h3]
+[list]
+[*][b]Warning page[/b] in the setup assistant when ZombieBuddy is not active: what does not work without it and how to fix it.
+[*][b]Red options:[/b] when ZombieBuddy is missing, all options that need it are written in red in [i]Options > Road Train[/i] and in the setup assistant.
+[*][b]Debug section[/b] at the bottom of the options, hidden until "Show debug options" is ticked. It contains "Show setup assistant on next start" (moved here from General), a preview of the warning page and a preview of the red options.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*]ZombieBuddy is no longer a required mod. In basic mode the mod's own radial menu entries (chains from the 3rd vehicle, tow bar, hazard lights) are hidden.
+[*]The message on game start without ZombieBuddy now says "basic mode".
+[*]The Java part was rebuilt for the new version number only. ZombieBuddy asks once more for approval - click [b]Yes[/b].
+[/list]
+
+Full changelog: CHANGELOG.md in the mod folder.

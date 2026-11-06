@@ -1,0 +1,42 @@
+module Base
+{
+    /* Multi-Vehicle Towing: starre Abschleppstange.
+       Wird beim Ankuppeln verbraucht und kommt beim Abkuppeln zurueck.
+       Reisst die Verbindung waehrend der Fahrt, bleibt nur eine kaputte Stange (Schrott zum Einschmelzen). */
+    item MultiTowTowBar
+    {
+        DisplayCategory = Tool,
+        ItemType = base:normal,
+        Weight = 6.0,
+        Icon = MultiTowTowBar,
+        /* Zustand 0..100 %: nutzt sich beim Fahren ab (Option "Verschleiss") */
+        ConditionMax = 100,
+        StaticModel = IronBarStock,
+        WorldStaticModel = IronBarStock,
+        Tags = base:hasmetal,
+    }
+
+    item MultiTowTowBarBroken
+    {
+        DisplayCategory = Material,
+        ItemType = base:normal,
+        Weight = 5.0,
+        Icon = MultiTowTowBarBroken,
+        StaticModel = IronBarStock,
+        WorldStaticModel = IronBarStock,
+        MetalValue = 150.0,
+        Tags = base:hasmetal;base:smeltableironlarge,
+    }
+
+    /* (ab 0.16) NUR fuer die Anzeige: ein Stueck der 3D-Kette zwischen den Fahrzeugen. Der Java-Teil zeichnet dieses
+       Modell entlang der Verbindung. Kommt nicht im Loot vor und wird von keinem Rezept hergestellt. */
+    item MultiTowLinkSegment
+    {
+        DisplayCategory = Junk,
+        ItemType = base:normal,
+        Weight = 0.01,
+        Icon = MultiTowTowBarBroken,
+        StaticModel = MultiTowLinkSegment,
+        WorldStaticModel = MultiTowLinkSegment,
+    }
+}

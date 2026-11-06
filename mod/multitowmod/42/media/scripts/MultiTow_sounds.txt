@@ -1,0 +1,36 @@
+module Base
+{
+    /* Multi-Vehicle Towing: Kettengeraeusche. Dateien liegen in media/sound/ (ogg, mono). */
+    sound MultiTowAttach
+    {
+        category = Vehicle,
+        clip
+        {
+            file = media/sound/MultiTowAttach.ogg,
+            distanceMax = 40,
+            volume = 0.9,
+        }
+    }
+
+    sound MultiTowDetach
+    {
+        category = Vehicle,
+        clip
+        {
+            file = media/sound/MultiTowDetach.ogg,
+            distanceMax = 40,
+            volume = 0.9,
+        }
+    }
+
+    sound MultiTowSnap
+    {
+        category = Vehicle,
+        clip
+        {
+            file = media/sound/MultiTowSnap.ogg,
+            distanceMax = 60,
+            volume = 1.0,
+        }
+    }
+}

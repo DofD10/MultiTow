@@ -1,0 +1,9 @@
+{
+    "ContextMenu_MultiTow_Attach": "Multi-Tow: Attach (%1 to %2)",
+    "ContextMenu_MultiTow_AttachHook": "Multi-Tow: Attach, uses Heavy Chain Hook (%1 to %2)",
+    "ContextMenu_MultiTow_AttachBar": "Multi-Tow: Attach with tow bar (%1 to %2)",
+
+    "ContextMenu_MultiTow_Detach": "Multi-Tow: Detach (%1 from %2)",
+    "ContextMenu_MultiTow_DetachHook": "Multi-Tow: Detach, returns hook (%1 from %2)",
+    "ContextMenu_MultiTow_DetachBar": "Multi-Tow: Detach, returns tow bar (%1 from %2)"
+}

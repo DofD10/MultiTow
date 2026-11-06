@@ -1,0 +1,9 @@
+{
+    "ContextMenu_MultiTow_Attach": "Multi-Tow: Ankuppeln (%1 an %2)",
+    "ContextMenu_MultiTow_AttachHook": "Multi-Tow: Ankuppeln, verbraucht Heavy Chain Hook (%1 an %2)",
+    "ContextMenu_MultiTow_AttachBar": "Multi-Tow: Mit Abschleppstange ankuppeln (%1 an %2)",
+
+    "ContextMenu_MultiTow_Detach": "Multi-Tow: Abkuppeln (%1 von %2)",
+    "ContextMenu_MultiTow_DetachHook": "Multi-Tow: Abkuppeln, Haken zurueck (%1 von %2)",
+    "ContextMenu_MultiTow_DetachBar": "Multi-Tow: Abkuppeln, Abschleppstange zurueck (%1 von %2)"
+}
