@@ -63,6 +63,8 @@ In Project Zomboid every vehicle can hold exactly [b]one[/b] towing link. This i
 [list]
 [*][b]Build 42 only[/b] (made and tested on 42.21).
 [*]Singleplayer is tested. [b]Multiplayer is experimental and untested[/b] - for trains of 3 or more vehicles, ZombieBuddy and this mod are needed on the server and on every client. Otherwise only the basic mode runs.
+[*][b]Host games[/b] (Host button in the main menu): the game starts its own background server [b]without ZombieBuddy[/b], so chains are off there. Test option: [i]Options > DO Utilities > Multi-Vehicle Towing > Show debug options > Host games: start ZombieBuddy on the hosted server[/i] (approve the Java part permanently first).
+[*]Every save game has its own mod list. If the mod seems to do nothing in a save, enable it in that save's mod list.
 [*]Works with other vehicle mods as long as their vehicles have the usual towing points; missing points are added automatically.
 [*]With some performance mods the red tail lights of the vehicle models may not blink - the blinking light at the rear still works.
 [/list]

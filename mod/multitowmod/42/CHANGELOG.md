@@ -39,6 +39,21 @@ New changes go under **Unreleased** until the next version number is assigned.
 
 _Nothing yet._
 
+## [0.16.2] – 2026-11-07 – Chains in Host games (test option)
+
+### [+] ADDED
+- **Debug option "Host games: start ZombieBuddy on the hosted server" (off by default, experimental):** for games started with Host, the game starts its own background server, but without ZombieBuddy - so that server had no Java part and chains were off for everybody. With this option the background server also starts with ZombieBuddy, and trains of 3 or more vehicles work in Host games too. The server loads only Java mods you already allowed permanently (it cannot ask, so new or changed JARs are skipped). The option is read from the saved settings when you click Host, so it also works if the options screen was never opened. Find it in Options > DO Utilities > Multi-Vehicle Towing > Show debug options.
+
+## [0.16.1] – 2026-11-07 – Fix: Java part loaded, but basic mode
+
+### [~] CHANGED
+- **The Java part now pauses when Multi-Vehicle Towing is not enabled in the loaded save game.** Every save game has its own mod list. If the mod was on in the main menu but not in the save, the Java part kept changing the game's towing although the menus and items of the mod were missing. Now it checks the loaded mod list and stays out of the way; the game tows as usual. The console shows "Java part paused" (and "active again" when you go back to a save with the mod).
+
+### [!] FIXED
+- **Wrong version on the DO Utilities page:** the mod still reported itself as 0.15.0, so DO Utilities said "Multi-Vehicle Towing was updated, please restart" although the right version was installed. The mod now reads its version from its own mod.info.
+- **Java part running, but the mod stayed in basic mode:** when the game loads the mods only after its start (for example with an empty mod list at start and the mods switched on in the main menu), ZombieBuddy loaded MultiTowCore.jar but the game's Lua never learned its functions until the next restart, so the mod said "Java part not loaded - basic mode". The Java part now registers its Lua functions itself in this case.
+- When ZombieBuddy did not offer the function `getJavaModStatus`, the log showed "Object tried to call nil in pcall" (javaRestartNeeded) up to three times at start. The mod now checks first whether ZombieBuddy offers that function. Nothing else changes.
+
 ## [0.16.0] – 2026-11-05 – 3D chain
 
 ### [+] ADDED

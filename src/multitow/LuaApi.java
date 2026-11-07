@@ -26,6 +26,7 @@ import se.krka.kahlua.integration.annotations.LuaMethod;
  *  ------------------------+---------------------------------------------------------
  *  Info                    | multiTowCoreVersion, multiTowNetRole
  *  Regeln / Einstellungen  | multiTowConfigure, multiTowConfigureTrain, ...PowerBoost, multiTowSetAssist
+ *  Debug                   | multiTowSetHostServerAgent (Host-Spiele: ZombieBuddy auf dem Server)
  *  Warnblinker             | multiTowSetHazard, ...BlinkOn, ...VehiclesNear, ...ShouldBlink
  *  Sichtbare Verbindungen  | multiTowSetLinkStyle, ...ShowLinks, ...ShowLinksNear, ...
  *  Verschleiss             | multiTowLinkStress, multiTowSnapLink, multiTowIsBarLink
@@ -66,6 +67,12 @@ public class LuaApi {
     }
 
     /** true, wenn ein Fahrzeug mit diesem Skript-Namen als LKW zaehlt (fuer die Lua-Menues). */
+    /** Debug (TEST): bei "Host"-Spielen ZombieBuddy auch auf dem Hintergrund-Server starten (siehe HostServerAgent). */
+    @LuaMethod(name = "multiTowSetHostServerAgent", global = true)
+    public static void multiTowSetHostServerAgent(boolean on) {
+        HostServerAgent.setEnabled(on);
+    }
+
     @LuaMethod(name = "multiTowIsTruck", global = true)
     public static boolean multiTowIsTruck(String scriptName) {
         return ChainTow.isTruckName(scriptName);

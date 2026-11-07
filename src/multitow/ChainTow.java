@@ -14,6 +14,7 @@ import se.krka.kahlua.vm.KahluaTable;
 
 import org.joml.Vector3f;
 
+import zombie.ZomboidFileSystem;
 import zombie.characters.IsoGameCharacter;
 import zombie.characters.IsoPlayer;
 import zombie.core.physics.Bullet;
@@ -69,7 +70,7 @@ import zombie.vehicles.VehicleManager;
  * Der Java-Teil muss dafuer auf dem Server UND auf allen Clients geladen sein.
  */
 public final class ChainTow {
-    public static final String VERSION = "0.16.0";
+    public static final String VERSION = "0.16.2";
 
     // ==================================================================
     //  Merklisten (nur im Speicher, nicht im Spielstand)
@@ -206,9 +207,60 @@ public final class ChainTow {
         return f;
     }
 
-    /** Aktiv im Einzelspieler, auf dem Server und auf den Clients (im MP muss der Java-Teil ueberall geladen sein). */
+    // ------------------------------------------------------------------ Ist die Mod im laufenden Spiel ueberhaupt an?
+    //   Der Java-Teil bleibt geladen, bis das Spiel beendet wird - auch wenn danach ein Spielstand OHNE Multi-Tow
+    //   geladen wird (jeder Spielstand hat seine eigene Mod-Liste):
+    //     Hauptmenue: 73 Mods inkl. Multi-Tow  -> ZombieBuddy laedt MultiTowCore.jar
+    //     Spielstand: 72 Mods, OHNE Multi-Tow  -> Lua-Teil, Menues, Gegenstaende fehlen, Java-Teil liefe aber weiter
+    //   Darum schaut isActive() nach, ob die Mod in der gerade geladenen Mod-Liste steht. Wenn nicht, ruht der
+    //   Java-Teil und das Spiel schleppt ganz normal ab (nur 2 Fahrzeuge, keine Kette, kein Warnblinker).
+    //   >> Nachgeschaut wird hoechstens einmal pro Sekunde (isActive wird sehr oft aufgerufen).
+    private static final String MOD_ID = "MultiTowRoadTrain";
+    private static volatile boolean modInList = true;   // bis zur ersten Pruefung: an (wie bisher)
+    private static volatile long nextModCheckNs;
+    private static volatile Boolean loggedModState;      // zuletzt ins Log geschriebener Zustand (nur Wechsel melden)
+
+    /** Steht Multi-Tow in der Mod-Liste, mit der das Spiel gerade laeuft? (gemerkt, einmal pro Sekunde neu) */
+    static boolean modInLoadedList() {
+        long now = System.nanoTime();
+        if (now - nextModCheckNs >= 0) {
+            nextModCheckNs = now + 1_000_000_000L;
+            try {
+                List<String> mods = ZomboidFileSystem.instance == null ? null : ZomboidFileSystem.instance.getModIDs();
+                if (mods != null && !mods.isEmpty()) {          // leere Liste = Spiel laedt gerade -> alten Stand behalten
+                    boolean found = false;
+                    for (Object o : mods.toArray()) {           // Kopie: die Liste kann sich beim Laden aendern
+                        String id = o == null ? "" : o.toString();
+                        if (id.startsWith("\\")) {
+                            id = id.substring(1);               // Build 42 schreibt manche IDs mit "\" davor
+                        }
+                        if (MOD_ID.equalsIgnoreCase(id)) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    modInList = found;
+                    if (loggedModState == null || loggedModState != found) {
+                        if (loggedModState != null || !found) {
+                            System.out.println(found
+                                ? "[MultiTowCore] Multi-Vehicle Towing is in the loaded mod list again - Java part active."
+                                : "[MultiTowCore] Multi-Vehicle Towing is NOT in the loaded mod list (for example not enabled for this save game)"
+                                    + " - Java part paused, the game tows as usual.");
+                        }
+                        loggedModState = found;
+                    }
+                }
+            } catch (Throwable t) {
+                // Liste gerade nicht lesbar -> alten Stand behalten
+            }
+        }
+        return modInList;
+    }
+
+    /** Aktiv im Einzelspieler, auf dem Server und auf den Clients (im MP muss der Java-Teil ueberall geladen sein).
+     *  Nicht aktiv, wenn Multi-Tow in der gerade geladenen Mod-Liste fehlt (siehe modInLoadedList). */
     public static boolean isActive() {
-        if (!reflectionOk || !enabled) {
+        if (!reflectionOk || !enabled || !modInLoadedList()) {
             return false;
         }
         if ((GameServer.server || GameClient.client) && !warnedInactive) {

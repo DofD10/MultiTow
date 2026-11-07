@@ -1,3 +1,25 @@
+[h2]Version 0.16.2 - Chains in Host games (test option)[/h2]
+
+[h3]New[/h3]
+[list]
+[*][b]Host games:[/b] the game starts its own background server for them, but without ZombieBuddy - so chains were off there for everybody. New test option (off by default): [i]Options > DO Utilities > Multi-Vehicle Towing > Show debug options > Host games: start ZombieBuddy on the hosted server[/i]. Then the background server starts with ZombieBuddy too and trains of 3 or more vehicles work in Host games.
+[*]Approve the Java part [b]permanently[/b] in ZombieBuddy first - the background server cannot ask and skips JARs that are not approved yet.
+[/list]
+
+[h2]Version 0.16.1 - Fix: Java part loaded, but basic mode[/h2]
+
+[h3]Changed[/h3]
+[list]
+[*][b]Save games without this mod:[/b] every save game has its own mod list. If Multi-Vehicle Towing was on in the main menu but not in the save, its Java part still changed the game's towing. Now it pauses in such a save and the game tows as usual. Tip: if the mod seems to do nothing in a save, enable it in that save's mod list.
+[/list]
+
+[h3]Fixed[/h3]
+[list]
+[*][b]Java part running, but the mod stayed in basic mode:[/b] when the game loads the mods only after its start (for example with an empty mod list at start and the mods switched on in the main menu), ZombieBuddy loaded the Java part, but the game's Lua did not learn its functions until the next restart. The Java part now registers them itself.
+[*]With some ZombieBuddy setups the log showed "Object tried to call nil in pcall" up to three times at start. Fixed.
+[*]DO Utilities said "Multi-Vehicle Towing was updated, please restart" although the right version was installed (the mod still reported itself as 0.15.0). Fixed.
+[/list]
+
 [h2]Version 0.16.0 - 3D chain[/h2]
 
 [h3]New[/h3]

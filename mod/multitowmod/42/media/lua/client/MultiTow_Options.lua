@@ -214,7 +214,10 @@ local debugOptions = {
     options:addTickBox("debugZBWarning", "UI_MultiTow_DebugZBWarning", false, "UI_MultiTow_DebugZBWarning_tt"),
     -- Vorschau: Optionen, die den Java-Teil brauchen, rot zeigen, auch wenn ZombieBuddy laeuft (bleibt an, bis man ihn abhakt)
     options:addTickBox("debugRedOptions", "UI_MultiTow_DebugRedOptions", false, "UI_MultiTow_DebugRedOptions_tt"),
+    -- (TEST) "Host"-Spiele: ZombieBuddy auch auf dem Hintergrund-Server starten (Java: HostServerAgent). Standard aus.
+    options:addTickBox("debugHostServerJava", "UI_MultiTow_DebugHostServerJava", false, "UI_MultiTow_DebugHostServerJava_tt"),
 }
+local debugHostServer = debugOptions[4]
 local debugRed = debugOptions[3]
 -- Ein-/Ausblenden des Debug-Bereichs macht ab 0.14.0 der Hub (Mod "DO Utilities"): siehe Anmeldung ganz unten (debug = ...).
 
@@ -364,6 +367,10 @@ local function applySettings()
     end
     MultiTow.Settings.hazardStyle = hazardStyle:getValue() or 3
     MultiTow.Settings.hazardScope = hazardScope:getValue() or 1
+    -- (TEST) Host-Spiele: ZombieBuddy auch auf dem Hintergrund-Server (wirkt beim naechsten Klick auf "Host")
+    if multiTowSetHostServerAgent then
+        multiTowSetHostServerAgent(debugHostServer:getValue() and true or false)
+    end
     if MultiTow.applyHazardSettings then MultiTow.applyHazardSettings() end
 
     -- Zug-Anzeige ist persoenlich
@@ -482,12 +489,35 @@ end
 -- Beim Hub anmelden (ab Hub-Version 5): wir tragen uns in die gemeinsame Liste ein. So weiss die Seite "DO Utilities", dass diese
 -- Mod installiert ist (und wie ihre Seite gebaut wird). Den Hub selbst brauchen wir dafuer nicht - er kann vor oder nach uns
 -- geladen werden und liest die Liste erst, wenn er die Seite baut.
+--
+-- Versionsnummer: wird beim Laden aus der EIGENEN mod.info gelesen (modversion=...). So muss sie bei einem Release nur
+-- an einer Stelle geaendert werden. Vorher stand sie hier fest drin und wurde bei 0.16.0 vergessen -> DO Utilities
+-- meldete "neue Version, bitte neu starten", obwohl alles aktuell war.
+-- MOD_VERSION_FALLBACK nur, falls die Datei nicht lesbar ist.
+local MOD_VERSION_FALLBACK = "0.16.2"
+local function readOwnModVersion()
+    local v = nil
+    pcall(function()
+        local r = getModFileReader(OPTIONS_ID, "mod.info", false)
+        if not r then return end
+        local line = r:readLine()
+        while line do
+            local m = tostring(line):match("^%s*modversion%s*=%s*(%S+)")
+            if m then v = m end
+            line = r:readLine()
+        end
+        r:close()
+    end)
+    return v or MOD_VERSION_FALLBACK
+end
+MultiTow.MOD_VERSION = readOwnModVersion()
+
 DofDRegistry = DofDRegistry or {}
 DofDRegistry.mods = DofDRegistry.mods or {}
 DofDRegistry.mods[OPTIONS_ID] = {
     id = OPTIONS_ID,
     name = "Multi-Vehicle Towing",
-    version = "0.15.0",
+    version = MultiTow.MOD_VERSION,
     build = buildOptionsPage,
     -- (ab Hub-Version 8) Debug-Bereich ganz unten: "showDebug" blendet alles ab "showSetup" ein/aus
     debug = { toggle = "showDebug", first = "showSetup" },

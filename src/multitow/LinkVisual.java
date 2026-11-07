@@ -215,6 +215,9 @@ public final class LinkVisual {
         if (GameServer.server) {   // Server hat keinen Bildschirm
             return;
         }
+        if (!ChainTow.isActive()) {   // Multi-Tow im geladenen Spielstand aus -> keine Ketten/Baender zeichnen
+            return;
+        }
         // zuerst die sichtbaren Ketten/Stangen, die Baender liegen darueber
         IsoCell cellForLinks = IsoWorld.instance == null ? null : IsoWorld.instance.currentCell;
         if (cellForLinks != null) {

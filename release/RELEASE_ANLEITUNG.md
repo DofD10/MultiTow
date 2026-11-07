@@ -1,6 +1,6 @@
 > **0.14.0:** Reihenfolge beim Hochladen und Steam-Abhängigkeit „DO Utilities“ siehe `D:\Claude\DOUtilities\release\RELEASE_ANLEITUNG.md`.
 
-# Workshop-Release – Multi-Vehicle Towing 0.16.0
+# Workshop-Release – Multi-Vehicle Towing 0.16.2
 
 Alles ist vorbereitet unter `C:\Users\Alex\Zomboid\Workshop\MultiVehicleRoadTrain\`:
 
@@ -15,6 +15,17 @@ MultiVehicleRoadTrain\
 ```
 
 ## 1. Vorher kurz prüfen
+- **Neu in 0.16.2 (Host-Spiele):** Java-Teil neu gebaut – ZombieBuddy fragt nach der Freigabe (**Ja + dauerhaft**), Konsole zeigt `[MultiTowCore] Version 0.16.2 loaded`.
+  - **Schalter aus** (Standard): Host starten → startet ganz normal (wichtigster Test!).
+  - **Schalter an** (Optionen → DO Utilities → Multi-Tow → Debug-Optionen anzeigen → „Host-Spiele: ZombieBuddy auf dem Host-Server starten (Test)“ → Übernehmen): Host starten → `console.txt`: `Host server: ZombieBuddy start option passed ...` (nur EINE Startoption), `coop-console.txt`: `[MultiTowCore] Multiplayer mode: server` und `Version 0.16.2 loaded`. Im Spiel Kette mit 3 Fahrzeugen kuppeln.
+  - Nach Neustart **ohne** Öffnen der Optionen: Schalter wirkt trotzdem (wird beim Klick auf Host aus ModOptions.ini gelesen).
+- **Neu in 0.16.1 (Fehlerbehebung):** Java-Teil neu gebaut – ZombieBuddy fragt nach der Freigabe (Ja), Konsole zeigt `[MultiTowCore] Version 0.16.1 loaded`.
+  - Normaler Start (Mods schon beim Spielstart aktiv): alles wie vorher, Optionsseite zeigt den Java-Teil 0.16.1.
+  - Nachstellen des Fehlers: im Hauptmenü alle Mods aus → Spiel neu starten → ZombieBuddy, DO Utilities und Multi-Tow im Hauptmenü einschalten (ohne Neustart) → Spielstand laden. Erwartet: voller Modus (nicht „basic mode“) und in der Konsole `[MultiTowCore] Lua functions registered right away ...`.
+  - Keine Meldung „Object tried to call nil in pcall“ mehr in console.txt.
+  - Optionen → DO Utilities: Karte zeigt **Multi-Vehicle Towing v0.16.1**, keine Meldung „... was updated ... Please restart“ (die Mod liest ihre Version jetzt selbst aus der mod.info).
+  - **Spielstand ohne Multi-Tow:** Im Hauptmenü Multi-Tow an, beim Laden eines Spielstands in dessen Mod-Liste Multi-Tow aus → im Spiel normales Abschleppen (nur 2 Fahrzeuge, keine Kette), Konsole: `Java part paused`. Zurück ins Hauptmenü → Konsole: `active again`.
+  - Unsigniert wie 0.16.0 (keine `.zbs`-Datei im Mod).
 - **Neu in 0.16.0 (3D-Kette):** Spiel **ganz neu starten** (neue Modelle und Haken werden nur beim Start geladen). ZombieBuddy fragt nach der Freigabe (Ja), Konsole zeigt `[MultiTowCore] Version 0.16.0 loaded`.
   - Spieloptionen: „3D-Gegenstände am Boden“ an. Kette zwischen zwei Fahrzeugen: echtes 3D-Modell, flackert beim Fahren nicht, Glieder bleiben bei jedem Abstand gleich groß. Stange: weiter ein Bild.
   - „3D-Gegenstände am Boden“ aus: die Kette ist wieder das alte Bild.

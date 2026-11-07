@@ -1,7 +1,7 @@
 name=Multi-Vehicle Towing
 id=MultiTowRoadTrain
 author=DofD
-modversion=0.16.0
+modversion=0.16.2
 description=Couple any number of cars and trailers behind each other into one long train. Needs ZombieBuddy (Java part) for trains of 3 or more vehicles; without it only a basic mode runs.
 require=\DOUtilities
 ZBVersionMin=2.3.4

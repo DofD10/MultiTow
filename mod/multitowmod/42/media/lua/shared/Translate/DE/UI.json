@@ -50,6 +50,8 @@
     "UI_MultiTow_ShowDebug_tt": "Zeigt die Optionen darunter. Sie sind zum Testen und fuer die Fehlersuche gedacht.",
     "UI_MultiTow_DebugRedOptions": "Optionen, die ZombieBuddy brauchen, rot markieren",
     "UI_MultiTow_DebugRedOptions_tt": "Vorschau: zeigt die Optionen, die ZombieBuddy brauchen, in Rot - so wie Spieler ohne ZombieBuddy sie sehen. Die Hinweiszeile oben in Allgemein erscheint beim naechsten Oeffnen der Optionen.",
+    "UI_MultiTow_DebugHostServerJava": "Host-Spiele: ZombieBuddy auf dem Host-Server starten (Test)",
+    "UI_MultiTow_DebugHostServerJava_tt": "Nur fuer Spiele, die mit Host gestartet werden. Das Spiel startet dafuer einen eigenen Hintergrund-Server, aber ohne ZombieBuddy - der hat dann keinen Java-Teil und die Ketten sind fuer alle aus. Mit dieser Option startet der Hintergrund-Server ebenfalls mit ZombieBuddy (und allen Java-Mods, die du schon dauerhaft erlaubt hast; nachfragen kann er nicht, neue oder geaenderte JARs werden uebersprungen). Wirkt beim naechsten Klick auf Host. Experimentell: ausschalten, wenn das Hosten nicht klappt.",
 
     "UI_MultiTow_SetupTitle": "Multi-Vehicle Towing - Einrichtung",
     "UI_MultiTow_SetupPage": "Seite %1 von %2",

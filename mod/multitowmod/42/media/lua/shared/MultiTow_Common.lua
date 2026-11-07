@@ -84,6 +84,9 @@ end
 --   nicht (alte Version), kommt false heraus - dann bleibt es beim normalen Hinweis "ZombieBuddy fehlt".
 function MultiTow.javaRestartNeeded()
     if MultiTow.javaLoaded() or ZombieBuddy == nil then return false end
+    -- !! Alte ZombieBuddy-Versionen kennen getJavaModStatus nicht. Den Aufruf von nil schreibt das Spiel auch
+    --    innerhalb von pcall als "Lua error" ins Log (gemeldet in einem Fehlerbericht) - darum vorher pruefen.
+    if ZombieBuddy.getJavaModStatus == nil then return false end
     local ok, loaded = pcall(function()
         for _, id in ipairs({ "MultiTowRoadTrain", "multitow" }) do   -- Mod-ID oder Java-Paketname (javaPkgName)
             local st = ZombieBuddy.getJavaModStatus(id)
@@ -110,6 +113,8 @@ for _, id in ipairs({
     "wear", "hazardAuto", "assistPower",
     -- Zug-Anzeige
     "hudStress", "hudCond",              -- Belastung / Zustand gibt es nur mit Verschleiss
+    -- Debug
+    "debugHostServerJava",               -- startet ZombieBuddy auf dem Host-Server (macht der Java-Teil)
 }) do MultiTow.JAVA_OPTIONS[id] = true end
 for _, suffix in ipairs({ "Car", "Truck" }) do
     for _, id in ipairs({ "maxVehicles", "boostMode", "brake", "speedKmh", "speedMph" }) do
